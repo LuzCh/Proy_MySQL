@@ -1,0 +1,94 @@
+#datos a insertar
+
+#persona
+insert into persona(ci, nombres, apepaterno, apematerno, sexo, fecha_de_nacimiento, correo, telefono) values
+(2111111, 'Jose Juan', 'Rodriguez', 'Lopez', 'M', '1999-01-13', 'joseju_13@gmail.com', 73456077),
+(2211161, 'Paulina', 'Torrelli', 'Salinas', 'F', '1996-02-29', 'paulis@gmail.com', 74846543),
+(3215511, 'Christopher', 'Caronta', 'Flores', 'M', '1994-03-28', 'christ_caronta@gmail.com', 79462131),
+(1321112, 'Nikita', 'Solares', 'Cruz', 'F', '1992-04-22', 'nikitasol7@gmail.com', 69977092),
+(3216513, 'Joey', 'Jay', 'Jones', 'M', '1985-04-28', 'joey_j@gmail.com', 71932231),
+(1328114, 'Jaime', 'Cruz', 'Justino', 'M', '2002-05-22', 'jaimitocruz@gmail.com', 76767678),
+(4132111, 'Micaela', 'Kunta', 'Loza', 'F', '2000-05-26', 'mica_kunta@gmail.com', 78768773);
+(2122121, 'Dilan', 'Romero', 'Lozano', 'M', '2003-07-16', 'dilan_r@gmail.com', 76167273);
+
+#medico
+insert into medico(ciMedico, especialidad, sueldo) values
+(2111111, 'Oncología Veterinaria', 4000),
+(2211161, 'Cirugia Veterinaria', 6000);
+(3215511, 'Radiologia Veterinaria', 6000);
+(3216513, 'Medicina Interna', 5000);
+
+#dueño
+insert into dueño(ciDueño, direccion) values
+(1328114, 'Av. Jaimes Freyre'),
+(4132111, 'Av. 16 de Julio'),
+(2122121, 'Av. Costanera'),
+(1321112, 'Av. Arce'),
+(2211161, 'Calle comercio #132');
+
+####-
+#atiende
+insert into atiende(idMascota, ciMedico) values
+(22, 2111111),
+(21, 2211161),
+(23, 3215511),
+(25, 3215511),
+(24, 3216513);
+
+#mascota
+insert into mascota(idMascota, nombre, especie, raza, fecha_de_nacimiento, ciDueño) values
+(22, 'sol', 'perro', 'sharpey', '2022-08-13', 1328114),
+(21, 'mandarino', 'gato', 'mestizo', '2015-11-11', 4132111),
+(23, 'milaneso', 'gato', 'mestizo', '2019-01-16', 2122121),
+(24, 'indestrutible', 'gato', 'mestizo', '2019-02-24', 3215511),
+(25, 'porkito', 'cobaya', 'coronet', '2021-06-13', 2211161);
+####-
+
+#asigna
+insert into asigna(idMascota, ciMedico, id_Diagnostico) values
+(23, 2111111, 204),
+(21, 2211161, 202),
+(25, 3215511, 203),
+(24, 3216513, 201),
+(22, 2111111, 200);
+
+#diagnostico
+insert into diagnostico(id_Diagnostico, fecha_de_diagnostico, diagnostico, tratamiento, observaciones) values
+(200, '2023-02-14', 'Obesidad', 'Implementación de una dieta y programa de ejercicios', 'Cita de control en dos semanas'),
+(201, '2023-03-13', 'Analisis', 'Extraccion de sangre', 'Los resultados seran entregados en 24 horas'),
+(202, '2022-05-12', 'Resfriado', 'Tratamiento con antiviral', 'Dar medicamento dos veces al dia cada ocho horas'),
+(203, '2022-06-17', 'Alergia', 'Se le dio antihistaminicos', 'El paciente volverá en una semana'),
+(204, '2022-07-19', 'Dolor estomacal', 'Se le dio un laxante', 'El dueño debe observalo');
+###-
+
+#receta
+insert into receta(id_Diagnostico, id_Producto) values
+(201, 13),
+(202, 11),
+(200, 12),
+(204, 14),
+(200, 15);
+
+#producto
+insert into producto(id_Producto, nombre, descripcion, precio, stock) values
+(11, 'Antiviral para gatos', 'Famciclovir', 70.99, 20),
+(12, 'Pelota de goma', 'Pelota de goma para perros', 15.99, 15),
+(13, 'Juguete de ratón', 'Juguete de peluche con sonido', 11.99, 75),
+(14, 'Pasto para gatos', 'Semillas de trigo para plantar', 30.03, 10),
+(15, 'Comida dietica para perro', 'Royal Canin Veterinary Diet 3kg', 124.99, 6);
+
+#proveedor
+insert into proveedor(id_Proveedor, nombreEmpresa, telefono, correo) values
+(111, 'Animales a salvo', 76666557, 'animalesasalvo@gmail.com'),
+(112, 'GatosDioses', 64443321, 'administracion@gatosdioses.es'),
+(113, 'Patitas', 68912191, 'patitas@gmail.com'),
+(114, 'ProtectoraRoedores', 22283347, 'protectora_roedores@gmail.com'),
+(115, 'Cats and Dogs', 71230114, 'catsanddogs@hotmail.com');
+
+#provee
+insert into provee(id_Producto, id_Proveedor, cantidad) values
+(11, 112, 30),
+(12, 115, 110),
+(13, 114, 100),
+(14, 111, 60),
+(15, 113, 20);
